@@ -3,6 +3,7 @@ let select = false;
 let boxToSelect = [];
 let maxBoxToSelect = 0;
 let currentBoxToSelect = 0;
+let highestBox = 1;
 
 $(document).ready(function() {
 	
@@ -29,6 +30,11 @@ $(document).ready(function() {
 			{
 				//Level complete, update counters and start next level
 				maxBoxToSelect++;
+				if (highestBox < maxBoxToSelect)
+					highestBox = maxBoxToSelect;
+				
+				$("#counter-current").text(currentBoxToSelect+1);
+				$("#counter-highest").text(highestBox);
 				
 				currentBoxToSelect = 0;
 				setTimeout(SetAllSelectColor, 250, "grey");
@@ -60,6 +66,9 @@ $(document).ready(function() {
 		maxBoxToSelect = 1;
 		currentBoxToSelect = 0;
 		StartDisplay();
+		
+		$("#counter-current").text(1);
+		$("#counter-highest").text(highestBox);
 	});
 });
 
