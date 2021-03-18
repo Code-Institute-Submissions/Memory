@@ -20,6 +20,10 @@
 
 /* ---------------------------------- Box */
 
+.counter-info {
+	width: 33.33%;
+}
+
 .memory-row {
 	position: relative;
 	max-width: 42rem;
