@@ -40,6 +40,9 @@ $(document).ready(function() {
 			//Wrong square pressed, set colors and end game
 			SetColor($(".memory-correct"), "green");
 			SetColor($(this), "red");
+			
+			start = true;
+			SetColor($(".memory-start"), "blue");
 		}
 	});
 	
@@ -50,6 +53,7 @@ $(document).ready(function() {
 		
 		//Restart counters and start new level
 		SetColor($(this), "grey");
+		$(this).text("Restart");
 		
 		start = false;
 		boxToSelect = [];	//empty
