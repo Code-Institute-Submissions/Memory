@@ -1,9 +1,47 @@
 let start = true;
+let select = false;
 let boxToSelect = [];
 let maxBoxToSelect = 0;
 let currentBoxToSelect = 0;
 
 $(document).ready(function() {
+	
+	$(".memory-select").on("click", function()
+	{
+		if (!select)	//Not selectable
+			return;
+		
+		select = false;
+		
+		//Set all selectable tiles color from blue to grey, so green or red can be set afterward
+		SetAllSelectColor("grey");
+		
+		if ($(this).hasClass("memory-correct"))
+		{
+			SetColor($(this), "green");
+			
+			if (currentBoxToSelect < maxBoxToSelect)
+			{
+				//Show green color for short time, then reset colors for next select
+				setTimeout(SetNextSelect, 250);
+			}
+			else
+			{
+				//Level complete, update counters and start next level
+				maxBoxToSelect++;
+				
+				currentBoxToSelect = 0;
+				setTimeout(SetAllSelectColor, 250, "grey");
+				setTimeout(StartDisplay, 300);
+			}
+		}
+		else
+		{
+			//Wrong square pressed, set colors and end game
+			SetColor($(".memory-correct"), "green");
+			SetColor($(this), "red");
+		}
+	});
 	
 	$(".memory-start").on("click", function()
 	{
@@ -56,6 +94,7 @@ function SetNextSelect()
 	$(".memory-select").removeClass("memory-correct");
 	$(".memory-select").eq(boxToSelect[currentBoxToSelect]).addClass("memory-correct");
 	
+	select = true;
 	currentBoxToSelect++;
 }
 
