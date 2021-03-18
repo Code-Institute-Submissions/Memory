@@ -1,7 +1,7 @@
 # Memory
 
 ## About
-I developed a [website](https://FortyTwoFortyTwo.github.io/Memory/index.html) for Code Institute's Interactive Frontend Development Project. The website's goal is to have gameplay of Memory game.
+I developed a [website](https://FortyTwoFortyTwo.github.io/Memory) for Code Institute's Interactive Frontend Development Project. The website's goal is to have gameplay of Memory game.
 The website is designed to be simple and easy to use on any platform or scale.
 
 ## Index – Table of Contents
